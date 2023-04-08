@@ -14,7 +14,7 @@
     <mkdir dir="${build}"/>
   </target>
 
-  <target name="compile" depends="init" description="compile the source">
+  <target name="compile" depends="init,resolve" description="compile the source">
     <!-- Compile the Java code from ${src} into ${build} -->
     <javac srcdir="${src}" destdir="${build}"/>
   </target>
@@ -26,7 +26,7 @@
     <get dest="${user.home}/.ant/lib/ivy.jar" src="http://search.maven.org/remotecontent?filepath=org/apache/ivy/ivy/2.3.0/ivy-2.3.0.jar"/>
     <fail message="Ivy has been installed. Run the build again"/>
 </target>
-   <target name="resolve" description="--> retrieve dependencies with ivy">
+   <target name="resolve" depends="install-ivy" description="--> retrieve dependencies with ivy">
         <ivy:retrieve />
     </target>
 
