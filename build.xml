@@ -22,7 +22,7 @@
   <available classname="org.apache.ivy.Main" property="ivy.installed"/> 
 
  <path id="ivy.lib.path">
-    <fileset dir="${user.home}/.ant/lib">
+    <fileset dir=".ant/lib">
       <include name="ivy*.jar"/>
     </fileset>
   </path>
