@@ -1,1 +1,13 @@
 language: java
+before_install:
+  - curl -O https://repo1.maven.org/maven2/org/apache/ivy/ivy/2.5.0/ivy-2.5.0.jar
+before_script:
+  - export ANT_OPTS="-Xmx512m"
+  - export IVY_HOME=$(pwd)
+  - export ANT_HOME=/usr/share/ant
+  - export PATH=$PATH:$ANT_HOME/bin
+script:
+  - ant resolve
+  - ant compile
+  - ant test
+  - ant dist
